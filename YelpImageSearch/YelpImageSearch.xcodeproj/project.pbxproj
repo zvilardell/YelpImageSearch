@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B61C03DC1F9933A9006ABB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */; };
+		B61C03DE1F9933A9006ABB26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C03DD1F9933A9006ABB26 /* ViewController.swift */; };
+		B61C03E11F9933A9006ABB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03DF1F9933A9006ABB26 /* Main.storyboard */; };
+		B61C03E31F9933A9006ABB26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E21F9933A9006ABB26 /* Assets.xcassets */; };
+		B61C03E61F9933A9006ABB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E41F9933A9006ABB26 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B61C03D81F9933A9006ABB26 /* YelpImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B61C03DD1F9933A9006ABB26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B61C03E01F9933A9006ABB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B61C03E21F9933A9006ABB26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B61C03E51F9933A9006ABB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B61C03E71F9933A9006ABB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B61C03D51F9933A9006ABB26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B61C03CF1F9933A9006ABB26 = {
+			isa = PBXGroup;
+			children = (
+				B61C03DA1F9933A9006ABB26 /* YelpImageSearch */,
+				B61C03D91F9933A9006ABB26 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B61C03D91F9933A9006ABB26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B61C03D81F9933A9006ABB26 /* YelpImageSearch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B61C03DA1F9933A9006ABB26 /* YelpImageSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B61C03E71F9933A9006ABB26 /* Info.plist */,
+				B61C03E21F9933A9006ABB26 /* Assets.xcassets */,
+				B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */,
+				B61C03EE1F9933FE006ABB26 /* ViewControllers */,
+				B61C03ED1F9933E5006ABB26 /* Storyboards */,
+			);
+			path = YelpImageSearch;
+			sourceTree = "<group>";
+		};
+		B61C03ED1F9933E5006ABB26 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B61C03DF1F9933A9006ABB26 /* Main.storyboard */,
+				B61C03E41F9933A9006ABB26 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B61C03EE1F9933FE006ABB26 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B61C03DD1F9933A9006ABB26 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B61C03D71F9933A9006ABB26 /* YelpImageSearch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B61C03EA1F9933A9006ABB26 /* Build configuration list for PBXNativeTarget "YelpImageSearch" */;
+			buildPhases = (
+				B61C03D41F9933A9006ABB26 /* Sources */,
+				B61C03D51F9933A9006ABB26 /* Frameworks */,
+				B61C03D61F9933A9006ABB26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YelpImageSearch;
+			productName = YelpImageSearch;
+			productReference = B61C03D81F9933A9006ABB26 /* YelpImageSearch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B61C03D01F9933A9006ABB26 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = zvilardell;
+				TargetAttributes = {
+					B61C03D71F9933A9006ABB26 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = B61C03D31F9933A9006ABB26 /* Build configuration list for PBXProject "YelpImageSearch" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B61C03CF1F9933A9006ABB26;
+			productRefGroup = B61C03D91F9933A9006ABB26 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B61C03D71F9933A9006ABB26 /* YelpImageSearch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B61C03D61F9933A9006ABB26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B61C03E61F9933A9006ABB26 /* LaunchScreen.storyboard in Resources */,
+				B61C03E31F9933A9006ABB26 /* Assets.xcassets in Resources */,
+				B61C03E11F9933A9006ABB26 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B61C03D41F9933A9006ABB26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B61C03DE1F9933A9006ABB26 /* ViewController.swift in Sources */,
+				B61C03DC1F9933A9006ABB26 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B61C03DF1F9933A9006ABB26 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B61C03E01F9933A9006ABB26 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B61C03E41F9933A9006ABB26 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B61C03E51F9933A9006ABB26 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B61C03E81F9933A9006ABB26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B61C03E91F9933A9006ABB26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B61C03EB1F9933A9006ABB26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFG6682TTT;
+				INFOPLIST_FILE = YelpImageSearch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zvilardell.YelpImageSearch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B61C03EC1F9933A9006ABB26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EFG6682TTT;
+				INFOPLIST_FILE = YelpImageSearch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zvilardell.YelpImageSearch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B61C03D31F9933A9006ABB26 /* Build configuration list for PBXProject "YelpImageSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B61C03E81F9933A9006ABB26 /* Debug */,
+				B61C03E91F9933A9006ABB26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B61C03EA1F9933A9006ABB26 /* Build configuration list for PBXNativeTarget "YelpImageSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B61C03EB1F9933A9006ABB26 /* Debug */,
+				B61C03EC1F9933A9006ABB26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B61C03D01F9933A9006ABB26 /* Project object */;
+}
