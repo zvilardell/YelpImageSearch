@@ -1,0 +1,6 @@
+framework module Pods_YelpImageSearch {
+  umbrella header "Pods-YelpImageSearch-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91A9643DB630B4E0D740B7F2 /* Pods_YelpImageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B105BDBA2A73061E0D415CC /* Pods_YelpImageSearch.framework */; };
 		B61C03DC1F9933A9006ABB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */; };
 		B61C03DE1F9933A9006ABB26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C03DD1F9933A9006ABB26 /* ViewController.swift */; };
 		B61C03E11F9933A9006ABB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03DF1F9933A9006ABB26 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B105BDBA2A73061E0D415CC /* Pods_YelpImageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YelpImageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BCA24D396A9924D952E118E /* Pods-YelpImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpImageSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpImageSearch/Pods-YelpImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		B61C03D81F9933A9006ABB26 /* YelpImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B61C03DD1F9933A9006ABB26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		B61C03E21F9933A9006ABB26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B61C03E51F9933A9006ABB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B61C03E71F9933A9006ABB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0E9A9766F80FD0640561236 /* Pods-YelpImageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpImageSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpImageSearch/Pods-YelpImageSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A9643DB630B4E0D740B7F2 /* Pods_YelpImageSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10D1EBF7FCE4A21252D84B10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B105BDBA2A73061E0D415CC /* Pods_YelpImageSearch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B61C03CF1F9933A9006ABB26 = {
 			isa = PBXGroup;
 			children = (
 				B61C03DA1F9933A9006ABB26 /* YelpImageSearch */,
 				B61C03D91F9933A9006ABB26 /* Products */,
+				E6C49BF5C091F368BC3D49BE /* Pods */,
+				10D1EBF7FCE4A21252D84B10 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +95,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		E6C49BF5C091F368BC3D49BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0E9A9766F80FD0640561236 /* Pods-YelpImageSearch.debug.xcconfig */,
+				9BCA24D396A9924D952E118E /* Pods-YelpImageSearch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,9 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B61C03EA1F9933A9006ABB26 /* Build configuration list for PBXNativeTarget "YelpImageSearch" */;
 			buildPhases = (
+				7AC5ABA22C1C0691D70CABC2 /* [CP] Check Pods Manifest.lock */,
 				B61C03D41F9933A9006ABB26 /* Sources */,
 				B61C03D51F9933A9006ABB26 /* Frameworks */,
 				B61C03D61F9933A9006ABB26 /* Resources */,
+				A31142D289154A1ADE5AA9F4 /* [CP] Embed Pods Frameworks */,
+				4E678096730CD50F5059E0CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,6 +173,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E678096730CD50F5059E0CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YelpImageSearch/Pods-YelpImageSearch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AC5ABA22C1C0691D70CABC2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A31142D289154A1ADE5AA9F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YelpImageSearch/Pods-YelpImageSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B61C03D41F9933A9006ABB26 /* Sources */ = {
@@ -288,6 +363,7 @@
 		};
 		B61C03EB1F9933A9006ABB26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0E9A9766F80FD0640561236 /* Pods-YelpImageSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +379,7 @@
 		};
 		B61C03EC1F9933A9006ABB26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BCA24D396A9924D952E118E /* Pods-YelpImageSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
