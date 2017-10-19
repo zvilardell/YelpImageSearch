@@ -3,7 +3,6 @@
 use_frameworks!
 
 target 'YelpImageSearch' do
-  
   pod 'Alamofire', '~> 4.5'
-
+  pod 'SwiftKeychainWrapper'
 end
