@@ -29,8 +29,14 @@ class YelpAPIRequestManager: NSObject {
     
     //---------------------------------------------------------------------------------------------------------------------------
     
+    //retrieve auth token for API requests
     func authorize() {
-        
+        //grab client credentials from info.plist
+        if let plistPath = Bundle.main.path(forResource: "Info", ofType: "plist"), let plistDict = NSDictionary(contentsOfFile: plistPath),
+        let clientID = plistDict["YelpClientID"] as? String, let clientSecret = plistDict["YelpClientSecret"] as? String {
+            print(clientID)
+            print(clientSecret)
+        }
     }
 
 }
