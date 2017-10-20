@@ -16,7 +16,7 @@ class YelpAPIRequestManager: NSObject {
     let baseRequestURL: String = "https://api.yelp.com/v3"
     let searchEndpoint: String = "/businesses/search"
     
-    //authorization endpoint url string
+    //authorization token endpoint url string
     let authURL: String = "https://api.yelp.com/oauth2/token"
     
     //---------------------------------------------------------------------------------------------------------------------------
@@ -29,13 +29,32 @@ class YelpAPIRequestManager: NSObject {
     
     //---------------------------------------------------------------------------------------------------------------------------
     
-    //retrieve auth token for API requests
+    //retrieve auth token for Yelp API requests
     func authorize() {
-        //grab client credentials from info.plist
-        if let plistPath = Bundle.main.path(forResource: "Info", ofType: "plist"), let plistDict = NSDictionary(contentsOfFile: plistPath),
-        let clientID = plistDict["YelpClientID"] as? String, let clientSecret = plistDict["YelpClientSecret"] as? String {
-            print(clientID)
-            print(clientSecret)
+        //check keychain for existing auth token
+        if let _ = KeychainWrapper.standard.string(forKey: "YelpImageSearch_Token") {
+            return
+        } else if let plistPath = Bundle.main.path(forResource: "Info", ofType: "plist"), let plistDict = NSDictionary(contentsOfFile: plistPath),
+            let clientID = plistDict["YelpClientID"] as? String, let clientSecret = plistDict["YelpClientSecret"] as? String {
+            
+            //client credentials retrieved from Info.plist, pass them to auth token request
+            let parameterDict: [String:String] = [
+                "grant_type" : "client_credentials",
+                "client_id" : clientID,
+                "client_secret" : clientSecret
+            ]
+            
+            Alamofire.request(authURL, method: .post, parameters: parameterDict).responseJSON { response in
+                if let responseDict = response.result.value as? NSDictionary, let token = responseDict["access_token"] as? String {
+                    //successful response, store token in keychain for later use
+                    KeychainWrapper.standard.set(token, forKey: "YelpImageSearch_Token")
+                } else if let error = response.result.error {
+                    //an error occurred, print its details
+                    print(error.localizedDescription)
+                } else {
+                    print("Unable to retrieve Yelp auth token at this time")
+                }
+            }
         }
     }
 
