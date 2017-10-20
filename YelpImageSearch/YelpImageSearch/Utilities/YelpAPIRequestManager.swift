@@ -65,7 +65,7 @@ class YelpAPIRequestManager: NSObject {
     
     //search businesses using the passed-in keyword
     func searchBusinesses(keyword: String, completion: ()->()) {
-        getAuthorization { [weak self] token in
+        getAuthorization { [unowned self] token in
             
             //header dictionary with auth token
             let headerDict: [String:String] = [
@@ -80,7 +80,7 @@ class YelpAPIRequestManager: NSObject {
                 "radius" : 40000 //max search radius allowed (25 miles)
             ]
 
-            Alamofire.request(self!.baseRequestURL + self!.searchEndpoint, method: .get, parameters: parameterDict, headers: headerDict).responseJSON { response in
+            Alamofire.request(self.baseRequestURL + self.searchEndpoint, method: .get, parameters: parameterDict, headers: headerDict).responseJSON { response in
                 if let responseDict = response.result.value as? NSDictionary {
                     print(responseDict)
                 } else if let error = response.result.error {
