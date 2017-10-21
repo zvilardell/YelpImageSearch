@@ -1,15 +1,20 @@
 PODS:
   - Alamofire (4.5.1)
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
+  - SDWebImage (~> 4.0)
   - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 8d245d7c82917b6b783cfe29dbbfdd7d7d8c03c7
+PODFILE CHECKSUM: 3425cffe21d09d63a1b0c900d771fc5c4d3b9289
 
 COCOAPODS: 1.1.1

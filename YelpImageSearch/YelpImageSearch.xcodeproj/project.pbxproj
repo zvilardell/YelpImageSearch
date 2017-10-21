@@ -13,6 +13,7 @@
 		B61C03E11F9933A9006ABB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03DF1F9933A9006ABB26 /* Main.storyboard */; };
 		B61C03E31F9933A9006ABB26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E21F9933A9006ABB26 /* Assets.xcassets */; };
 		B61C03E61F9933A9006ABB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E41F9933A9006ABB26 /* LaunchScreen.storyboard */; };
+		B6ACBBA61F9BD46A008C26C5 /* BusinessImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ACBBA51F9BD46A008C26C5 /* BusinessImageCollectionViewCell.swift */; };
 		B6D694CE1F99406200C6660B /* YelpAPIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D694CD1F99406200C6660B /* YelpAPIRequestManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		B61C03E21F9933A9006ABB26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B61C03E51F9933A9006ABB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B61C03E71F9933A9006ABB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6ACBBA51F9BD46A008C26C5 /* BusinessImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B6D694CD1F99406200C6660B /* YelpAPIRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIRequestManager.swift; sourceTree = "<group>"; };
 		C0E9A9766F80FD0640561236 /* Pods-YelpImageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpImageSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YelpImageSearch/Pods-YelpImageSearch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 				B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */,
 				B6D694CF1F99407200C6660B /* Utilities */,
 				B61C03EE1F9933FE006ABB26 /* ViewControllers */,
+				B6ACBBA71F9BD470008C26C5 /* CustomCells */,
 				B61C03ED1F9933E5006ABB26 /* Storyboards */,
 			);
 			path = YelpImageSearch;
@@ -95,6 +98,14 @@
 				B61C03DD1F9933A9006ABB26 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B6ACBBA71F9BD470008C26C5 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				B6ACBBA51F9BD46A008C26C5 /* BusinessImageCollectionViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		B6D694CF1F99407200C6660B /* Utilities */ = {
@@ -240,6 +251,7 @@
 			files = (
 				B61C03DE1F9933A9006ABB26 /* SearchViewController.swift in Sources */,
 				B61C03DC1F9933A9006ABB26 /* AppDelegate.swift in Sources */,
+				B6ACBBA61F9BD46A008C26C5 /* BusinessImageCollectionViewCell.swift in Sources */,
 				B6D694CE1F99406200C6660B /* YelpAPIRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -39,13 +39,27 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="YRg-Mu-QVB">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BusinessImageCollectionViewCell" id="YRg-Mu-QVB" customClass="BusinessImageCollectionViewCell" customModule="YelpImageSearch" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sJV-kY-vzx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="sJV-kY-vzx" secondAttribute="bottom" id="P5c-5t-0FC"/>
+                                            <constraint firstItem="sJV-kY-vzx" firstAttribute="leading" secondItem="YRg-Mu-QVB" secondAttribute="leading" id="nCd-A1-P5v"/>
+                                            <constraint firstAttribute="trailing" secondItem="sJV-kY-vzx" secondAttribute="trailing" id="nKg-7E-IGu"/>
+                                            <constraint firstItem="sJV-kY-vzx" firstAttribute="top" secondItem="YRg-Mu-QVB" secondAttribute="top" id="qUf-21-slf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="businessImageView" destination="sJV-kY-vzx" id="iQr-ko-A5K"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

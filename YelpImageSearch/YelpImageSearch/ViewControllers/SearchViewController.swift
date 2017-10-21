@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -22,8 +23,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        YelpAPIRequestManager.sharedInstance.searchBusinessImages(keyword: "pizza", page: pageCount) { results in
-            
+        YelpAPIRequestManager.sharedInstance.searchBusinessImages(keyword: "pizza", page: pageCount) {[unowned self] results in
+            DispatchQueue.main.async {
+                self.searchResults.append(contentsOf: results)
+                self.searchResultsCollectionView.reloadData()
+            }
         }
     }
 
@@ -48,7 +52,13 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessImageCollectionViewCell", for: indexPath) as! BusinessImageCollectionViewCell
+        if let imageURL = URL(string: searchResults[indexPath.item]) {
+        	cell.businessImageView.sd_setImage(with: imageURL)
+        } else {
+            cell.businessImageView.image = nil
+        }
+        return cell
     }
 }
 
