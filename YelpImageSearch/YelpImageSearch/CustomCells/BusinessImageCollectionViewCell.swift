@@ -20,7 +20,7 @@ class BusinessImageCollectionViewCell: UICollectionViewCell {
     func setup(imageURLString: String) {
         //load image from passed-in url string
         if let imageURL = URL(string: imageURLString) {
-            //load image asyncronously
+            //load image asynchronously from url
             businessImageView.sd_setImage(with: imageURL)
         } else {
             //no image for this cell
