@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		91A9643DB630B4E0D740B7F2 /* Pods_YelpImageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B105BDBA2A73061E0D415CC /* Pods_YelpImageSearch.framework */; };
 		B61C03DC1F9933A9006ABB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */; };
-		B61C03DE1F9933A9006ABB26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C03DD1F9933A9006ABB26 /* ViewController.swift */; };
+		B61C03DE1F9933A9006ABB26 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61C03DD1F9933A9006ABB26 /* SearchViewController.swift */; };
 		B61C03E11F9933A9006ABB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03DF1F9933A9006ABB26 /* Main.storyboard */; };
 		B61C03E31F9933A9006ABB26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E21F9933A9006ABB26 /* Assets.xcassets */; };
 		B61C03E61F9933A9006ABB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E41F9933A9006ABB26 /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		9BCA24D396A9924D952E118E /* Pods-YelpImageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YelpImageSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-YelpImageSearch/Pods-YelpImageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		B61C03D81F9933A9006ABB26 /* YelpImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B61C03DD1F9933A9006ABB26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B61C03DD1F9933A9006ABB26 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B61C03E01F9933A9006ABB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B61C03E21F9933A9006ABB26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B61C03E51F9933A9006ABB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		B61C03EE1F9933FE006ABB26 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B61C03DD1F9933A9006ABB26 /* ViewController.swift */,
+				B61C03DD1F9933A9006ABB26 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -238,7 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B61C03DE1F9933A9006ABB26 /* ViewController.swift in Sources */,
+				B61C03DE1F9933A9006ABB26 /* SearchViewController.swift in Sources */,
 				B61C03DC1F9933A9006ABB26 /* AppDelegate.swift in Sources */,
 				B6D694CE1F99406200C6660B /* YelpAPIRequestManager.swift in Sources */,
 			);

@@ -48,7 +48,7 @@ class YelpAPIRequestManager: NSObject {
             Alamofire.request(authURL, method: .post, parameters: parameterDict).responseJSON { response in
                 if let responseDict = response.result.value as? NSDictionary, let token = responseDict["access_token"] as? String {
                     //successful response, store token in keychain for later use
-                    //Yelp: "All tokens are now set to expire on January 18, 2038"
+                    //Yelp docs: "All tokens are set to expire on January 18, 2038"
                     KeychainWrapper.standard.set(token, forKey: "YelpImageSearch_Token")
                     completion(token)
                 } else if let error = response.result.error {
@@ -63,11 +63,11 @@ class YelpAPIRequestManager: NSObject {
         }
     }
     
-    //search businesses using the passed-in keyword
-    func searchBusinesses(keyword: String, completion: ()->()) {
+    //search businesses using the passed-in keyword and page number
+    func searchBusinessImages(keyword: String, page: Int, completion: @escaping ([String])->()) {
         getAuthorization { [unowned self] token in
             
-            //header dictionary with auth token
+            //header dictionary with retrieved auth token
             let headerDict: [String:String] = [
                 "Authorization" : "Bearer \(token)"
             ]
@@ -77,17 +77,28 @@ class YelpAPIRequestManager: NSObject {
                 "term" : keyword,
                 "latitude" : 37.7670169511878,
                 "longitude" : -122.42184275,
-                "radius" : 40000 //max search radius allowed (25 miles)
+                "radius" : 40000, //max search radius allowed (25 miles)
+                "limit" : 50, //max results allowed per page
+                "offset" : page * 50
             ]
 
             Alamofire.request(self.baseRequestURL + self.searchEndpoint, method: .get, parameters: parameterDict, headers: headerDict).responseJSON { response in
-                if let responseDict = response.result.value as? NSDictionary {
-                    print(responseDict)
+                if let responseDict = response.result.value as? NSDictionary, let businessDicts = responseDict["businesses"] as? [NSDictionary] {
+                    //build array of business image urls from response
+                    var imageURLs: [String] = []
+                    for business in businessDicts {
+                        if let url = business["image_url"] as? String {
+                            imageURLs.append(url)
+                        }
+                    }
+                    completion(imageURLs)
                 } else if let error = response.result.error {
                     //an error occurred, print its details
                     print(error.localizedDescription)
+                    completion([])
                 } else {
                     print("Unable to search Yelp businesses at this time")
+                    completion([])
                 }
             }
         }
