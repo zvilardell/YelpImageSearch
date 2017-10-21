@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -53,11 +52,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BusinessImageCollectionViewCell", for: indexPath) as! BusinessImageCollectionViewCell
-        if let imageURL = URL(string: searchResults[indexPath.item]) {
-        	cell.businessImageView.sd_setImage(with: imageURL)
-        } else {
-            cell.businessImageView.image = nil
-        }
+        cell.setup(imageURLString: searchResults[indexPath.item])
         return cell
     }
 }

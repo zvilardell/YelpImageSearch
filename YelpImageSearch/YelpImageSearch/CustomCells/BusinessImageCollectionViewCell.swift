@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BusinessImageCollectionViewCell: UICollectionViewCell {
     
@@ -14,5 +15,16 @@ class BusinessImageCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func setup(imageURLString: String) {
+        //load image from passed-in url string
+        if let imageURL = URL(string: imageURLString) {
+            //load image asyncronously
+            businessImageView.sd_setImage(with: imageURL)
+        } else {
+            //no image for this cell
+            businessImageView.image = nil
+        }
     }
 }

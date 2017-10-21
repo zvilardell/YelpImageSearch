@@ -51,6 +51,7 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="sJV-kY-vzx" secondAttribute="bottom" id="P5c-5t-0FC"/>
                                             <constraint firstItem="sJV-kY-vzx" firstAttribute="leading" secondItem="YRg-Mu-QVB" secondAttribute="leading" id="nCd-A1-P5v"/>
