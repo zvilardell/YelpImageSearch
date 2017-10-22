@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcC-kw-MH9">
-                                <rect key="frame" x="10" y="30" width="355" height="40"/>
+                                <rect key="frame" x="10" y="30" width="305" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3b7-8a-q2O"/>
                                 </constraints>
@@ -39,6 +39,16 @@
                                 <rect key="frame" x="169" y="355" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxb-8n-peK">
+                                <rect key="frame" x="315" y="30" width="60" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="pyw-VO-MGK"/>
+                                </constraints>
+                                <state key="normal" image="history"/>
+                                <connections>
+                                    <action selector="historyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Ny-UY-WvY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -46,15 +56,19 @@
                             <constraint firstItem="fiG-BH-RGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="CNz-1J-3rS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fiG-BH-RGs" secondAttribute="trailing" constant="10" id="FP6-1I-2nX"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="LlQ-eB-50Z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mcC-kw-MH9" secondAttribute="trailing" constant="10" id="WOw-U1-913"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fxb-8n-peK" secondAttribute="trailing" id="YtT-G2-HSi"/>
+                            <constraint firstItem="fxb-8n-peK" firstAttribute="leading" secondItem="mcC-kw-MH9" secondAttribute="trailing" id="bbM-Da-96E"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="e4o-ne-rQH"/>
+                            <constraint firstItem="fxb-8n-peK" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="top" id="okt-ce-t2v"/>
                             <constraint firstItem="47r-1x-ADZ" firstAttribute="centerX" secondItem="fiG-BH-RGs" secondAttribute="centerX" id="vXY-CS-Bks"/>
+                            <constraint firstItem="fxb-8n-peK" firstAttribute="height" secondItem="mcC-kw-MH9" secondAttribute="height" id="xTI-G7-FKg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fiG-BH-RGs" secondAttribute="bottom" id="yTa-jk-qbZ"/>
                             <constraint firstItem="fiG-BH-RGs" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" constant="10" id="zgK-uE-wWc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="historyButton" destination="fxb-8n-peK" id="8PF-tX-vmi"/>
                         <outlet property="searchActivityIndicator" destination="47r-1x-ADZ" id="p8I-Pi-nSo"/>
                     </connections>
                 </viewController>
@@ -132,4 +146,7 @@
             <point key="canvasLocation" x="137" y="774"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="history" width="24" height="24"/>
+    </resources>
 </document>

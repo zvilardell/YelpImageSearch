@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     
     //keep a reference to the search results collectionviewcontroller component of this page
@@ -28,7 +29,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib.        
+        historyButton.tintColor = UIColor.darkGray
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,6 +47,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    @IBAction func historyButtonTapped(_ sender: UIButton) {
+    }
+    
     //MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
