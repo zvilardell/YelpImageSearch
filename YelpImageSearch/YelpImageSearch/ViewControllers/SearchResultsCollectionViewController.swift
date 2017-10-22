@@ -86,7 +86,9 @@ class SearchResultsCollectionViewController: UICollectionViewController, UIColle
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == searchResults.count {
             //reached end of search results, show loading indicator cell while loading next page of results
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingIndicatorCollectionViewCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingIndicatorCollectionViewCell", for: indexPath) as! LoadingIndicatorCollectionViewCell
+            cell.setup()
+            return cell
         }
         
         //prepare image cell

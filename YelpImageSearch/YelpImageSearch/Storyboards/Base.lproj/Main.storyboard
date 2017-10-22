@@ -99,14 +99,14 @@
                                     <outlet property="businessImageView" destination="sJV-kY-vzx" id="iQr-ko-A5K"/>
                                 </connections>
                             </collectionViewCell>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LoadingIndicatorCollectionViewCell" id="vac-Tw-Hy6">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LoadingIndicatorCollectionViewCell" id="vac-Tw-Hy6" customClass="LoadingIndicatorCollectionViewCell" customModule="YelpImageSearch" customModuleProvider="target">
                                 <rect key="frame" x="61" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zTk-V8-330">
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zTk-V8-330">
                                             <rect key="frame" x="7" y="7" width="37" height="37"/>
                                             <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </activityIndicatorView>
@@ -116,6 +116,9 @@
                                     <constraint firstItem="zTk-V8-330" firstAttribute="centerX" secondItem="vac-Tw-Hy6" secondAttribute="centerX" id="0sa-m5-d4F"/>
                                     <constraint firstItem="zTk-V8-330" firstAttribute="centerY" secondItem="vac-Tw-Hy6" secondAttribute="centerY" id="fn3-1c-R04"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="loadingActivityIndicator" destination="zTk-V8-330" id="r0q-dj-nH9"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
