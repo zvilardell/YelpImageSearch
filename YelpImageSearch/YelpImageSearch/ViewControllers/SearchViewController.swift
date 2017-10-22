@@ -10,11 +10,15 @@ import UIKit
 
 class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchResultsCollectionView: UICollectionView!
+    @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     
-    //determines "page" of search results to request next from API, once user scrolls to end of current page
+    //current page of search results to request from API
+    //increments when user scrolls to end of current page
     var pageCount: Int = 0
+    
+    //store current user-entered search text
+    var currentSearchText: String = ""
     
     //hold business image url search results to display
     var searchResults: [String] = []
@@ -25,7 +29,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        startSearch(keyword: "pizza")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,8 +47,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
         //retrieve current page of search results for keyword
         YelpAPIRequestManager.sharedInstance.searchBusinessImages(keyword: keyword, page: pageCount) {[unowned self] results in
             DispatchQueue.main.async {
+                //load search results into collection view
                 self.searchResults.append(contentsOf: results)
                 self.searchResultsCollectionView.reloadData()
+                //stop activity indicator and show collecion view (showing first page of new search)
+                self.searchActivityIndicator.stopAnimating()
+                self.searchResultsCollectionView.isHidden = false
             }
         }
     }
@@ -54,8 +61,25 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //keyboard's search button was tapped
+        
         //hide keyboard
         textField.resignFirstResponder()
+        
+        //hide collection view and start activity indicator
+        searchResultsCollectionView.isHidden = true
+        searchActivityIndicator.startAnimating()
+        
+        //clear previous search results and reset page count
+        searchResults.removeAll()
+        pageCount = 0
+        
+        //reset collection view UI by loading empty collection
+        searchResultsCollectionView.reloadData()
+        
+        //save entered search text and start new search
+        currentSearchText = textField.text!
+        startSearch(keyword: currentSearchText)
+        
         return true
     }
     
@@ -79,11 +103,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == searchResults.count {
+        if indexPath.item > 0 && indexPath.item == searchResults.count {
             //reached end of search results, increment page number
             pageCount += 1
             //grab next page of results for current search
-            startSearch(keyword: "pizza")
+            startSearch(keyword: currentSearchText)
         }
     }
     
