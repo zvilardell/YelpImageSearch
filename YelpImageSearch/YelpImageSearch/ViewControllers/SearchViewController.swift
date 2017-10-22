@@ -37,7 +37,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     func showAlert(title: String, message: String) {
-        //create and show an alert
+        //create and show an alert from passed-in values
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         present(alert, animated: true) { [unowned self] in
