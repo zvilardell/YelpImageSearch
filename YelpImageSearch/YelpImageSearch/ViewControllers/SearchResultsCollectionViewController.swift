@@ -62,7 +62,7 @@ class SearchResultsCollectionViewController: UICollectionViewController, UIColle
     }
     
     //begin search process
-    func startSearch(keyword: String) {
+    private func startSearch(keyword: String) {
         //retrieve current page of search results for keyword
         YelpAPIRequestManager.sharedInstance.searchBusinessImages(keyword: keyword, page: pageCount) {[unowned self] results in
             DispatchQueue.main.async {
