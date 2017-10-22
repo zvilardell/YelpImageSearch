@@ -35,6 +35,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func showAlert(title: String, message: String) {
+        //create and show an alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        present(alert, animated: true) { [unowned self] in
+            self.searchActivityIndicator.stopAnimating()
+        }
+    }
 
     //MARK: UITextFieldDelegate
     

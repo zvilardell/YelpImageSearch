@@ -66,12 +66,19 @@ class SearchResultsCollectionViewController: UICollectionViewController, UIColle
         //retrieve current page of search results for keyword
         YelpAPIRequestManager.sharedInstance.searchBusinessImages(keyword: keyword, page: pageCount) {[unowned self] results in
             DispatchQueue.main.async {
-                //load search results into collection view
-                self.searchResults.append(contentsOf: results)
-                self.collectionView?.reloadData()
-                //stop activity indicator and show collecion view (showing first page of new search)
-                self.parentVC?.searchActivityIndicator.stopAnimating()
-                self.collectionView?.isHidden = false
+                if results.isEmpty {
+                    //no results found for new search or no further results found for current search, show alert
+                    self.parentVC?.showAlert(title: self.searchResults.isEmpty ? "No results found" : "End of results",
+                                             message: "Please enter a new search keyword.")
+                } else {
+                    //search results found
+                    //load search results into collection view
+                    self.searchResults.append(contentsOf: results)
+                    self.collectionView?.reloadData()
+                    //stop activity indicator and show collecion view (showing first page of new search)
+                    self.parentVC?.searchActivityIndicator.stopAnimating()
+                    self.collectionView?.isHidden = false
+                }
             }
         }
     }
