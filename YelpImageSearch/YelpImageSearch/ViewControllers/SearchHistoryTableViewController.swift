@@ -54,11 +54,27 @@ class SearchHistoryTableViewController: UITableViewController {
             previousSearchKeywords.append(keyword)
             tableView.reloadData()
         }
+        //when a search is performed, ensure that the history view is hidden
+        if !container.isHidden {
+            toggleHistoryView()
+        }
     }
     
-    //display table view of previous search keywords
-    func showOrHideHistory() {
+    //display or hide table view of previous search keywords
+    func toggleHistoryView() {
         container.isHidden = !container.isHidden
+        if !container.isHidden {
+            //animate/expand search history into view
+            UIView.animate(withDuration: 0.2) { [unowned self] in
+                let expandedHeight = CGFloat(self.previousSearchKeywords.count) * self.rowHeight
+                self.bottomSpaceConstraint.constant = expandedHeight > self.maxTableHeight ? 0.0 //fully expanded
+                    														               : self.maxTableHeight - expandedHeight //expanded to reveal populated rows
+                self.parentVC.view.layoutIfNeeded()
+            }
+        } else {
+            //collapse hidden table view for next expansion
+            bottomSpaceConstraint.constant = maxTableHeight
+        }
     }
 
     //MARK: UITableView DataSource/Delegate
@@ -78,7 +94,8 @@ class SearchHistoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //remove cell highlight after selection
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 
 }

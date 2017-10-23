@@ -58,7 +58,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             //no search history yet, show alert
             showAlert(title: "No history found", message: "Please perform a search to add a keyword to your search history.") {}
         } else {
-        	searchHistory.showOrHideHistory()
+        	searchHistory.toggleHistoryView()
         }
     }
     
