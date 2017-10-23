@@ -51,7 +51,7 @@ class SearchHistoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //add entered search keywords to history
+    //add user-entered search keyword to history
     func addSearch(keyword: String) {
         if !previousSearchKeywords.contains(keyword) {
             previousSearchKeywords.append(keyword)
@@ -105,6 +105,8 @@ class SearchHistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //remove cell highlight after selection
         tableView.deselectRow(at: indexPath, animated: false)
+        //start search process on parent for selected keyword
+        parentVC.performSearchFromHistory(keyword: previousSearchKeywords[indexPath.row])
     }
 
 }

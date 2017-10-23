@@ -92,6 +92,7 @@
                         <outlet property="searchHistoryBottomSpaceConstraint" destination="sfH-Lw-0CW" id="V5v-gh-msl"/>
                         <outlet property="searchHistoryContainer" destination="wFb-KD-RBa" id="7OT-V6-k7c"/>
                         <outlet property="searchResultsVeilView" destination="Lq8-oa-zNl" id="WIQ-AE-4De"/>
+                        <outlet property="searchTextField" destination="mcC-kw-MH9" id="raV-rN-nRJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

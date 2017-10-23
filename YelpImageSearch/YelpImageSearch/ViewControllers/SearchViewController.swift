@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchResultsVeilView: UIView!
@@ -48,13 +49,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //create and show an alert from passed-in values
     func showAlert(title: String, message: String, completion: (()->())?) {
-        //create and show an alert from passed-in values
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         present(alert, animated: true, completion: completion)
     }
 
+    //handle history button tap action
     @IBAction func historyButtonTapped(_ sender: UIButton) {
         if searchHistory.previousSearchKeywords.isEmpty {
             //no search history yet, show alert
@@ -62,6 +64,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         } else {
         	searchHistory.toggleHistoryView()
         }
+    }
+    
+    //when a keyword is selected from history, perform search
+    func performSearchFromHistory(keyword: String) {
+        //set search text
+        searchTextField.text = keyword
+        //simulate textfield's "Search" keypress to begin search
+        let _ = textFieldShouldReturn(searchTextField)
     }
     
     //MARK: UITextFieldDelegate
