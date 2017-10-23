@@ -12,6 +12,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchResultsVeilView: UIView!
     @IBOutlet weak var searchHistoryContainer: UIView!
     @IBOutlet weak var searchHistoryBottomSpaceConstraint: NSLayoutConstraint!
     
@@ -29,6 +30,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             } else if id == "SearchHistory" {
                 searchHistory = segue.destination as! SearchHistoryTableViewController
                 searchHistory.container = searchHistoryContainer
+                searchHistory.veilView = searchResultsVeilView
                 searchHistory.bottomSpaceConstraint = searchHistoryBottomSpaceConstraint
                 searchHistory.parentVC = self
             }

@@ -16,6 +16,9 @@ class SearchHistoryTableViewController: UITableViewController {
     //reference to tableviewcontroller's container
     weak var container: UIView!
     
+    //reference to the view that "veils" search results while history is shown
+    weak var veilView: UIView!
+    
     //reference to tableviewcontroller container's bottom space constraint
     weak var bottomSpaceConstraint: NSLayoutConstraint!
     
@@ -63,14 +66,20 @@ class SearchHistoryTableViewController: UITableViewController {
     //display or hide table view of previous search keywords
     func toggleHistoryView() {
         container.isHidden = !container.isHidden
+        veilView.isHidden = !veilView.isHidden
         if !container.isHidden {
             //animate/expand search history into view
-            UIView.animate(withDuration: 0.2) { [unowned self] in
-                let expandedHeight = CGFloat(self.previousSearchKeywords.count) * self.rowHeight
-                self.bottomSpaceConstraint.constant = expandedHeight > self.maxTableHeight ? 0.0 //fully expanded
-                    														               : self.maxTableHeight - expandedHeight //expanded to reveal populated rows
-                self.parentVC.view.layoutIfNeeded()
-            }
+            UIView.animate(withDuration: 0.2,
+                           animations: { [unowned self] in
+                               let expandedHeight = CGFloat(self.previousSearchKeywords.count) * self.rowHeight
+                               self.bottomSpaceConstraint.constant = expandedHeight > self.maxTableHeight ? 0.0 //fully expanded
+                                                                                                          : self.maxTableHeight - expandedHeight //expanded to reveal populated rows
+                               self.parentVC.view.layoutIfNeeded()
+                           },
+                           completion: { [unowned self] _ in
+                               //ensure that the table view always displays the beginning of its content on display
+                               self.tableView.setContentOffset(CGPoint.zero, animated: false)
+                           })
         } else {
             //collapse hidden table view for next expansion
             bottomSpaceConstraint.constant = maxTableHeight

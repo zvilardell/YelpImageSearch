@@ -36,6 +36,10 @@
                                     <segue destination="Ghi-nl-SPT" kind="embed" identifier="SearchResults" id="fdx-aX-omk"/>
                                 </connections>
                             </containerView>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-oa-zNl">
+                                <rect key="frame" x="0.0" y="70" width="375" height="597"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-KD-RBa" userLabel="Search History Container View">
                                 <rect key="frame" x="10" y="70" width="305" height="597"/>
                                 <connections>
@@ -60,13 +64,17 @@
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="47r-1x-ADZ" firstAttribute="centerY" secondItem="fiG-BH-RGs" secondAttribute="centerY" id="3Zx-Mr-KsK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lq8-oa-zNl" secondAttribute="bottom" id="5Zn-mi-Whr"/>
+                            <constraint firstItem="Lq8-oa-zNl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5sP-aY-29K"/>
                             <constraint firstItem="fiG-BH-RGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="CNz-1J-3rS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fiG-BH-RGs" secondAttribute="trailing" constant="10" id="FP6-1I-2nX"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="LlQ-eB-50Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lq8-oa-zNl" secondAttribute="trailing" id="VVM-ME-I3u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fxb-8n-peK" secondAttribute="trailing" id="YtT-G2-HSi"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="leading" secondItem="mcC-kw-MH9" secondAttribute="trailing" id="bbM-Da-96E"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="e4o-ne-rQH"/>
                             <constraint firstItem="wFb-KD-RBa" firstAttribute="centerX" secondItem="mcC-kw-MH9" secondAttribute="centerX" id="enc-Nk-j0C"/>
+                            <constraint firstItem="Lq8-oa-zNl" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" id="f33-Fr-IdJ"/>
                             <constraint firstItem="wFb-KD-RBa" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" id="hnh-Ir-YRf"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="top" id="okt-ce-t2v"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wFb-KD-RBa" secondAttribute="bottom" id="sfH-Lw-0CW"/>
@@ -83,10 +91,12 @@
                         <outlet property="searchActivityIndicator" destination="47r-1x-ADZ" id="p8I-Pi-nSo"/>
                         <outlet property="searchHistoryBottomSpaceConstraint" destination="sfH-Lw-0CW" id="V5v-gh-msl"/>
                         <outlet property="searchHistoryContainer" destination="wFb-KD-RBa" id="7OT-V6-k7c"/>
+                        <outlet property="searchResultsVeilView" destination="Lq8-oa-zNl" id="WIQ-AE-4De"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="98.50074962518741"/>
         </scene>
         <!--Search History Table View Controller-->
         <scene sceneID="Uzd-BH-Tbc">
