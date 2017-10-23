@@ -40,8 +40,15 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.        
+        //set history button tint
         historyButton.tintColor = UIColor.darkGray
+        //add search image to text field's leftView
+        let searchImageView = UIImageView(image: UIImage(named: "search"))
+        searchImageView.frame = CGRect(x: 0.0, y: 0.0, width: 25.0, height: 20.0)
+        searchImageView.contentMode = .scaleAspectFit
+        searchImageView.tintColor = UIColor.lightGray
+        searchTextField.leftView = searchImageView
+        searchTextField.leftViewMode = .always
     }
 
     override func didReceiveMemoryWarning() {

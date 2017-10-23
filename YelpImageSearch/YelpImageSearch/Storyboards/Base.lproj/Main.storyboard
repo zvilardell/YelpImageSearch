@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,7 +52,7 @@
                                 <rect key="frame" x="169" y="355" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxb-8n-peK">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxb-8n-peK">
                                 <rect key="frame" x="315" y="30" width="60" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="pyw-VO-MGK"/>
@@ -118,24 +117,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="305" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="SFt-Qj-tXm">
-                                            <rect key="frame" x="5" y="5" width="30" height="30"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="SFt-Qj-tXm">
+                                            <rect key="frame" x="10" y="10" width="20" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="Dvj-ra-MgJ"/>
-                                                <constraint firstAttribute="width" constant="30" id="NE4-mc-Sfu"/>
+                                                <constraint firstAttribute="height" constant="20" id="Dvj-ra-MgJ"/>
+                                                <constraint firstAttribute="width" constant="20" id="NE4-mc-Sfu"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Do-ca-3Wg">
-                                            <rect key="frame" x="40" y="10" width="252" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="40" y="11.5" width="255" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="8Do-ca-3Wg" firstAttribute="leading" secondItem="SFt-Qj-tXm" secondAttribute="trailing" constant="5" id="96S-p8-2wj"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="8Do-ca-3Wg" secondAttribute="trailing" constant="5" id="GKf-gt-PcT"/>
-                                        <constraint firstItem="SFt-Qj-tXm" firstAttribute="leading" secondItem="Qd8-sX-MHB" secondAttribute="leading" constant="5" id="OTL-44-SEI"/>
+                                        <constraint firstItem="8Do-ca-3Wg" firstAttribute="leading" secondItem="SFt-Qj-tXm" secondAttribute="trailing" constant="10" id="96S-p8-2wj"/>
+                                        <constraint firstAttribute="trailing" secondItem="8Do-ca-3Wg" secondAttribute="trailing" constant="10" id="GKf-gt-PcT"/>
+                                        <constraint firstItem="SFt-Qj-tXm" firstAttribute="leading" secondItem="Qd8-sX-MHB" secondAttribute="leading" constant="10" id="OTL-44-SEI"/>
                                         <constraint firstItem="SFt-Qj-tXm" firstAttribute="centerY" secondItem="Qd8-sX-MHB" secondAttribute="centerY" id="bTI-ht-dge"/>
                                         <constraint firstItem="8Do-ca-3Wg" firstAttribute="centerY" secondItem="Qd8-sX-MHB" secondAttribute="centerY" id="kOG-am-fwJ"/>
                                     </constraints>
@@ -229,6 +228,6 @@
     </scenes>
     <resources>
         <image name="history" width="24" height="24"/>
-        <image name="ic_search" width="24" height="24"/>
+        <image name="search" width="24" height="24"/>
     </resources>
 </document>
