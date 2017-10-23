@@ -13,8 +13,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     
-    //keep a reference to the search results collectionviewcontroller component of this page
+    //keep references to embedded components of this page
     var searchResults: SearchResultsCollectionViewController!
+    var searchHistory: SearchHistoryTableViewController!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -23,6 +24,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             if id == "SearchResults" {
                 searchResults = segue.destination as! SearchResultsCollectionViewController
                 searchResults.parentVC = self
+            } else if id == "SearchHistory" {
+                searchHistory = segue.destination as! SearchHistoryTableViewController
+                searchHistory.parentVC = self
             }
         }
     }
@@ -38,16 +42,20 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func showAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, completion: (()->())?) {
         //create and show an alert from passed-in values
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        present(alert, animated: true) { [unowned self] in
-            self.searchActivityIndicator.stopAnimating()
-        }
+        present(alert, animated: true, completion: completion)
     }
 
     @IBAction func historyButtonTapped(_ sender: UIButton) {
+        if searchHistory.previousSearchKeywords.isEmpty {
+            //no search history yet, show alert
+            showAlert(title: "No history found", message: "Please perform a search to add a keyword to your search history.") {}
+        } else {
+        	searchHistory.showHistory()
+        }
     }
     
     //MARK: UITextFieldDelegate

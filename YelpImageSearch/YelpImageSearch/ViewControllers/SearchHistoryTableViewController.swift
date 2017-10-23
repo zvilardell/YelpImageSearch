@@ -26,6 +26,11 @@ class SearchHistoryTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //display table view of previous search keywords
+    func showHistory() {
+        
+    }
 
     //MARK: UITableView DataSource/Delegate
 
