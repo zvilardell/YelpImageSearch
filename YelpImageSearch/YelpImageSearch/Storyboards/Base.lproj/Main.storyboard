@@ -69,9 +69,9 @@
                             <constraint firstItem="wFb-KD-RBa" firstAttribute="centerX" secondItem="mcC-kw-MH9" secondAttribute="centerX" id="enc-Nk-j0C"/>
                             <constraint firstItem="wFb-KD-RBa" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" id="hnh-Ir-YRf"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="top" id="okt-ce-t2v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wFb-KD-RBa" secondAttribute="bottom" id="sfH-Lw-0CW"/>
                             <constraint firstItem="47r-1x-ADZ" firstAttribute="centerX" secondItem="fiG-BH-RGs" secondAttribute="centerX" id="vXY-CS-Bks"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="height" secondItem="mcC-kw-MH9" secondAttribute="height" id="xTI-G7-FKg"/>
-                            <constraint firstItem="wFb-KD-RBa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yN9-yK-aKE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fiG-BH-RGs" secondAttribute="bottom" id="yTa-jk-qbZ"/>
                             <constraint firstItem="wFb-KD-RBa" firstAttribute="width" secondItem="mcC-kw-MH9" secondAttribute="width" id="ylh-Rg-rnT"/>
                             <constraint firstItem="fiG-BH-RGs" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" constant="10" id="zgK-uE-wWc"/>
@@ -81,6 +81,8 @@
                     <connections>
                         <outlet property="historyButton" destination="fxb-8n-peK" id="8PF-tX-vmi"/>
                         <outlet property="searchActivityIndicator" destination="47r-1x-ADZ" id="p8I-Pi-nSo"/>
+                        <outlet property="searchHistoryBottomSpaceConstraint" destination="sfH-Lw-0CW" id="V5v-gh-msl"/>
+                        <outlet property="searchHistoryContainer" destination="wFb-KD-RBa" id="7OT-V6-k7c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

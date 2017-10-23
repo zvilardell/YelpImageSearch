@@ -11,7 +11,7 @@ import UIKit
 class SearchResultsCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     //keep a reference to our parent viewcontroller
-    weak var parentVC: SearchViewController?
+    weak var parentVC: SearchViewController!
     
     //current page of search results to request from API
     //increments when user scrolls to end of current page
@@ -47,7 +47,7 @@ class SearchResultsCollectionViewController: UICollectionViewController, UIColle
     func newSearch(keyword: String) {
         //hide collection view and start activity indicator
         collectionView?.isHidden = true
-        parentVC?.searchActivityIndicator.startAnimating()
+        parentVC.searchActivityIndicator.startAnimating()
         
         //clear previous search results and reset page count
         searchResults.removeAll()
@@ -68,9 +68,9 @@ class SearchResultsCollectionViewController: UICollectionViewController, UIColle
             DispatchQueue.main.async {
                 if results.isEmpty {
                     //no results found for new search or no further results found for current search, show alert
-                    self.parentVC?.showAlert(title: self.searchResults.isEmpty ? "No results found" : "End of results",
+                    self.parentVC.showAlert(title: self.searchResults.isEmpty ? "No results found" : "End of results",
                                              message: "Please enter a new search keyword.") { [unowned self] in
-                                                self.parentVC?.searchActivityIndicator.stopAnimating()
+                                                self.parentVC.searchActivityIndicator.stopAnimating()
                     						 }
                 } else {
                     //search results found
@@ -78,7 +78,7 @@ class SearchResultsCollectionViewController: UICollectionViewController, UIColle
                     self.searchResults.append(contentsOf: results)
                     self.collectionView?.reloadData()
                     //stop activity indicator and show collecion view (showing first page of new search)
-                    self.parentVC?.searchActivityIndicator.stopAnimating()
+                    self.parentVC.searchActivityIndicator.stopAnimating()
                     self.collectionView?.isHidden = false
                 }
             }

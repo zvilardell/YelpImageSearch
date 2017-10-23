@@ -12,6 +12,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchHistoryContainer: UIView!
+    @IBOutlet weak var searchHistoryBottomSpaceConstraint: NSLayoutConstraint!
     
     //keep references to embedded components of this page
     var searchResults: SearchResultsCollectionViewController!
@@ -26,6 +28,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 searchResults.parentVC = self
             } else if id == "SearchHistory" {
                 searchHistory = segue.destination as! SearchHistoryTableViewController
+                searchHistory.container = searchHistoryContainer
+                searchHistory.bottomSpaceConstraint = searchHistoryBottomSpaceConstraint
                 searchHistory.parentVC = self
             }
         }
@@ -54,7 +58,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             //no search history yet, show alert
             showAlert(title: "No history found", message: "Please perform a search to add a keyword to your search history.") {}
         } else {
-        	searchHistory.showHistory()
+        	searchHistory.showOrHideHistory()
         }
     }
     
@@ -68,6 +72,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         //begin new search process for entered text
         searchResults.newSearch(keyword: textField.text!)
+        
+        //add search keyword to history
+        searchHistory.addSearch(keyword: textField.text!)
         
         return true
     }
