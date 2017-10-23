@@ -21,9 +21,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     var searchResults: SearchResultsCollectionViewController!
     var searchHistory: SearchHistoryTableViewController!
     
+    //set all necessary references involving the embedded components of this page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        //set all necessary references involving the embedded components of this page
         if let id = segue.identifier {
             if id == "SearchResults" {
                 searchResults = segue.destination as! SearchResultsCollectionViewController
