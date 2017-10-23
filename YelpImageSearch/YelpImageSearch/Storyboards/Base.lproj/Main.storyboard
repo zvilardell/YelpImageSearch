@@ -29,10 +29,16 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="psC-i2-CJj"/>
                                 </connections>
                             </textField>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiG-BH-RGs">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiG-BH-RGs" userLabel="Search Results Container View">
                                 <rect key="frame" x="10" y="80" width="355" height="587"/>
                                 <connections>
                                     <segue destination="Ghi-nl-SPT" kind="embed" identifier="SearchResults" id="fdx-aX-omk"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-KD-RBa" userLabel="Search History Container View">
+                                <rect key="frame" x="9.5" y="80" width="355" height="587"/>
+                                <connections>
+                                    <segue destination="lav-Qn-1wd" kind="embed" identifier="SearchHistory" id="byB-pe-0CA"/>
                                 </connections>
                             </containerView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="47r-1x-ADZ">
@@ -53,13 +59,17 @@
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="47r-1x-ADZ" firstAttribute="centerY" secondItem="fiG-BH-RGs" secondAttribute="centerY" id="3Zx-Mr-KsK"/>
+                            <constraint firstItem="wFb-KD-RBa" firstAttribute="centerX" secondItem="fiG-BH-RGs" secondAttribute="centerX" id="4CK-xY-bPB"/>
                             <constraint firstItem="fiG-BH-RGs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="CNz-1J-3rS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fiG-BH-RGs" secondAttribute="trailing" constant="10" id="FP6-1I-2nX"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="LlQ-eB-50Z"/>
+                            <constraint firstItem="wFb-KD-RBa" firstAttribute="width" secondItem="fiG-BH-RGs" secondAttribute="width" id="OeE-jU-aPP"/>
+                            <constraint firstItem="wFb-KD-RBa" firstAttribute="centerY" secondItem="fiG-BH-RGs" secondAttribute="centerY" id="Pkw-Wo-aNQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fxb-8n-peK" secondAttribute="trailing" id="YtT-G2-HSi"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="leading" secondItem="mcC-kw-MH9" secondAttribute="trailing" id="bbM-Da-96E"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="e4o-ne-rQH"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="top" id="okt-ce-t2v"/>
+                            <constraint firstItem="wFb-KD-RBa" firstAttribute="height" secondItem="fiG-BH-RGs" secondAttribute="height" id="uTN-w8-b3y"/>
                             <constraint firstItem="47r-1x-ADZ" firstAttribute="centerX" secondItem="fiG-BH-RGs" secondAttribute="centerX" id="vXY-CS-Bks"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="height" secondItem="mcC-kw-MH9" secondAttribute="height" id="xTI-G7-FKg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fiG-BH-RGs" secondAttribute="bottom" id="yTa-jk-qbZ"/>
@@ -74,6 +84,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Search History Table View Controller-->
+        <scene sceneID="Uzd-BH-Tbc">
+            <objects>
+                <tableViewController id="lav-Qn-1wd" customClass="SearchHistoryTableViewController" customModule="YelpImageSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ilv-nm-SP8">
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="587"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wmc-zN-maq">
+                                <rect key="frame" x="0.0" y="28" width="355" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wmc-zN-maq" id="Qd8-sX-MHB">
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lav-Qn-1wd" id="Zrl-tj-aW9"/>
+                            <outlet property="delegate" destination="lav-Qn-1wd" id="Wp1-oK-usN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wW-gG-R0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="99"/>
         </scene>
         <!--Search Results Collection View Controller-->
         <scene sceneID="DXX-o5-dZv">
