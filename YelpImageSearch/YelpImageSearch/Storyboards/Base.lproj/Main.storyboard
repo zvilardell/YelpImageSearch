@@ -76,10 +76,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fxb-8n-peK" secondAttribute="trailing" id="YtT-G2-HSi"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="leading" secondItem="mcC-kw-MH9" secondAttribute="trailing" id="bbM-Da-96E"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="e4o-ne-rQH"/>
-                            <constraint firstItem="wFb-KD-RBa" firstAttribute="centerX" secondItem="mcC-kw-MH9" secondAttribute="centerX" id="enc-Nk-j0C"/>
                             <constraint firstItem="Lq8-oa-zNl" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" id="f33-Fr-IdJ"/>
                             <constraint firstItem="wFb-KD-RBa" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" id="hnh-Ir-YRf"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="top" id="okt-ce-t2v"/>
+                            <constraint firstItem="wFb-KD-RBa" firstAttribute="leading" secondItem="mcC-kw-MH9" secondAttribute="leading" id="ppk-gB-fRD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wFb-KD-RBa" secondAttribute="bottom" id="sfH-Lw-0CW"/>
                             <constraint firstItem="47r-1x-ADZ" firstAttribute="centerX" secondItem="fiG-BH-RGs" secondAttribute="centerX" id="vXY-CS-Bks"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="height" secondItem="mcC-kw-MH9" secondAttribute="height" id="xTI-G7-FKg"/>
@@ -154,7 +154,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wW-gG-R0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="98.50074962518741"/>
+            <point key="canvasLocation" x="849" y="99"/>
         </scene>
         <!--Search Results Collection View Controller-->
         <scene sceneID="DXX-o5-dZv">
