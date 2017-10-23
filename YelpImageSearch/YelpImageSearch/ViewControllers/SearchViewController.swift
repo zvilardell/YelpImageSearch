@@ -56,7 +56,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: completion)
     }
 
-    //handle history button tap action
+    //handle history button tap
     @IBAction func historyButtonTapped(_ sender: UIButton) {
         if searchHistory.previousSearchKeywords.isEmpty {
             //no search history yet, show alert
@@ -72,6 +72,14 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         searchTextField.text = keyword
         //simulate textfield's "Search" keypress to begin search
         let _ = textFieldShouldReturn(searchTextField)
+    }
+    
+    //handle searchResultsVeilView tap
+    @IBAction func veilViewTapped(_ sender: Any) {
+        //hide history (and veil view)
+        searchHistory.toggleHistoryView()
+        //hide keyboard
+        searchTextField.resignFirstResponder()
     }
     
     //MARK: UITextFieldDelegate

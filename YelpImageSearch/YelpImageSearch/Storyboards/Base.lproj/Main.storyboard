@@ -36,9 +36,12 @@
                                     <segue destination="Ghi-nl-SPT" kind="embed" identifier="SearchResults" id="fdx-aX-omk"/>
                                 </connections>
                             </containerView>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-oa-zNl">
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq8-oa-zNl" customClass="UIControl">
                                 <rect key="frame" x="0.0" y="70" width="375" height="597"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="veilViewTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2uV-mq-Nac"/>
+                                </connections>
                             </view>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-KD-RBa" userLabel="Search History Container View">
                                 <rect key="frame" x="10" y="70" width="305" height="597"/>
