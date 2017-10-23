@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,8 +36,8 @@
                                     <segue destination="Ghi-nl-SPT" kind="embed" identifier="SearchResults" id="fdx-aX-omk"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-KD-RBa" userLabel="Search History Container View">
-                                <rect key="frame" x="9.5" y="80" width="355" height="587"/>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-KD-RBa" userLabel="Search History Container View">
+                                <rect key="frame" x="9.5" y="70" width="355" height="597"/>
                                 <connections>
                                     <segue destination="lav-Qn-1wd" kind="embed" identifier="SearchHistory" id="byB-pe-0CA"/>
                                 </connections>
@@ -64,14 +65,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fiG-BH-RGs" secondAttribute="trailing" constant="10" id="FP6-1I-2nX"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="LlQ-eB-50Z"/>
                             <constraint firstItem="wFb-KD-RBa" firstAttribute="width" secondItem="fiG-BH-RGs" secondAttribute="width" id="OeE-jU-aPP"/>
-                            <constraint firstItem="wFb-KD-RBa" firstAttribute="centerY" secondItem="fiG-BH-RGs" secondAttribute="centerY" id="Pkw-Wo-aNQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fxb-8n-peK" secondAttribute="trailing" id="YtT-G2-HSi"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="leading" secondItem="mcC-kw-MH9" secondAttribute="trailing" id="bbM-Da-96E"/>
                             <constraint firstItem="mcC-kw-MH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="e4o-ne-rQH"/>
+                            <constraint firstItem="wFb-KD-RBa" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" id="hnh-Ir-YRf"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="top" id="okt-ce-t2v"/>
-                            <constraint firstItem="wFb-KD-RBa" firstAttribute="height" secondItem="fiG-BH-RGs" secondAttribute="height" id="uTN-w8-b3y"/>
                             <constraint firstItem="47r-1x-ADZ" firstAttribute="centerX" secondItem="fiG-BH-RGs" secondAttribute="centerX" id="vXY-CS-Bks"/>
                             <constraint firstItem="fxb-8n-peK" firstAttribute="height" secondItem="mcC-kw-MH9" secondAttribute="height" id="xTI-G7-FKg"/>
+                            <constraint firstItem="wFb-KD-RBa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="yN9-yK-aKE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fiG-BH-RGs" secondAttribute="bottom" id="yTa-jk-qbZ"/>
                             <constraint firstItem="fiG-BH-RGs" firstAttribute="top" secondItem="mcC-kw-MH9" secondAttribute="bottom" constant="10" id="zgK-uE-wWc"/>
                         </constraints>
@@ -90,17 +91,43 @@
             <objects>
                 <tableViewController id="lav-Qn-1wd" customClass="SearchHistoryTableViewController" customModule="YelpImageSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ilv-nm-SP8">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="587"/>
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="597"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wmc-zN-maq">
-                                <rect key="frame" x="0.0" y="28" width="355" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchHistoryTableViewCell" rowHeight="40" id="wmc-zN-maq" customClass="SearchHistoryTableViewCell" customModule="YelpImageSearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="355" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wmc-zN-maq" id="Qd8-sX-MHB">
-                                    <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="39.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search" translatesAutoresizingMaskIntoConstraints="NO" id="SFt-Qj-tXm">
+                                            <rect key="frame" x="5" y="5" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Dvj-ra-MgJ"/>
+                                                <constraint firstAttribute="width" constant="30" id="NE4-mc-Sfu"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Do-ca-3Wg">
+                                            <rect key="frame" x="40" y="10" width="302" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="8Do-ca-3Wg" firstAttribute="leading" secondItem="SFt-Qj-tXm" secondAttribute="trailing" constant="5" id="96S-p8-2wj"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="8Do-ca-3Wg" secondAttribute="trailing" constant="5" id="GKf-gt-PcT"/>
+                                        <constraint firstItem="SFt-Qj-tXm" firstAttribute="leading" secondItem="Qd8-sX-MHB" secondAttribute="leading" constant="5" id="OTL-44-SEI"/>
+                                        <constraint firstItem="SFt-Qj-tXm" firstAttribute="centerY" secondItem="Qd8-sX-MHB" secondAttribute="centerY" id="bTI-ht-dge"/>
+                                        <constraint firstItem="8Do-ca-3Wg" firstAttribute="centerY" secondItem="Qd8-sX-MHB" secondAttribute="centerY" id="kOG-am-fwJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="searchImageView" destination="SFt-Qj-tXm" id="Ffl-aC-jeD"/>
+                                    <outlet property="searchKeywordLabel" destination="8Do-ca-3Wg" id="V9C-iW-Rct"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -111,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wW-gG-R0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="99"/>
+            <point key="canvasLocation" x="976.79999999999995" y="98.50074962518741"/>
         </scene>
         <!--Search Results Collection View Controller-->
         <scene sceneID="DXX-o5-dZv">
@@ -186,5 +213,6 @@
     </scenes>
     <resources>
         <image name="history" width="24" height="24"/>
+        <image name="ic_search" width="24" height="24"/>
     </resources>
 </document>
