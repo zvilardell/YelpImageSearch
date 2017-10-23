@@ -10,19 +10,30 @@ import UIKit
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchResultsVeilView: UIView!
+    @IBOutlet weak var searchHistoryContainer: UIView!
+    @IBOutlet weak var searchHistoryBottomSpaceConstraint: NSLayoutConstraint!
     
-    //keep a reference to the search results collectionviewcontroller component of this page
+    //keep references to embedded components of this page
     var searchResults: SearchResultsCollectionViewController!
+    var searchHistory: SearchHistoryTableViewController!
     
+    //set all necessary references involving the embedded components of this page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        //set all necessary references involving the embedded components of this page
         if let id = segue.identifier {
             if id == "SearchResults" {
                 searchResults = segue.destination as! SearchResultsCollectionViewController
                 searchResults.parentVC = self
+            } else if id == "SearchHistory" {
+                searchHistory = segue.destination as! SearchHistoryTableViewController
+                searchHistory.container = searchHistoryContainer
+                searchHistory.veilView = searchResultsVeilView
+                searchHistory.bottomSpaceConstraint = searchHistoryBottomSpaceConstraint
+                searchHistory.parentVC = self
             }
         }
     }
@@ -38,16 +49,37 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func showAlert(title: String, message: String) {
-        //create and show an alert from passed-in values
+    //create and show an alert from passed-in values
+    func showAlert(title: String, message: String, completion: (()->())?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        present(alert, animated: true) { [unowned self] in
-            self.searchActivityIndicator.stopAnimating()
-        }
+        present(alert, animated: true, completion: completion)
     }
 
+    //handle history button tap
     @IBAction func historyButtonTapped(_ sender: UIButton) {
+        if searchHistory.previousSearchKeywords.isEmpty {
+            //no search history yet, show alert
+            showAlert(title: "No history found", message: "Please perform a search to add a keyword to your search history.") {}
+        } else {
+        	searchHistory.toggleHistoryView()
+        }
+    }
+    
+    //when a keyword is selected from history, perform search
+    func performSearchFromHistory(keyword: String) {
+        //set search text
+        searchTextField.text = keyword
+        //simulate textfield's "Search" keypress to begin search
+        let _ = textFieldShouldReturn(searchTextField)
+    }
+    
+    //handle searchResultsVeilView tap
+    @IBAction func veilViewTapped(_ sender: Any) {
+        //hide history (and veil view)
+        searchHistory.toggleHistoryView()
+        //hide keyboard
+        searchTextField.resignFirstResponder()
     }
     
     //MARK: UITextFieldDelegate
@@ -60,6 +92,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         //begin new search process for entered text
         searchResults.newSearch(keyword: textField.text!)
+        
+        //add search keyword to history
+        searchHistory.addSearch(keyword: textField.text!)
         
         return true
     }
