@@ -13,6 +13,7 @@
 		B61C03E11F9933A9006ABB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03DF1F9933A9006ABB26 /* Main.storyboard */; };
 		B61C03E31F9933A9006ABB26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E21F9933A9006ABB26 /* Assets.xcassets */; };
 		B61C03E61F9933A9006ABB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B61C03E41F9933A9006ABB26 /* LaunchScreen.storyboard */; };
+		B61CEB0F1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B61CEB0D1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodeld */; };
 		B69235191F9D1B3E00F802B0 /* LoadingIndicatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69235181F9D1B3E00F802B0 /* LoadingIndicatorCollectionViewCell.swift */; };
 		B692351B1F9D69C500F802B0 /* SearchHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692351A1F9D69C500F802B0 /* SearchHistoryTableViewController.swift */; };
 		B692351D1F9E5A4B00F802B0 /* SearchHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B692351C1F9E5A4B00F802B0 /* SearchHistoryTableViewCell.swift */; };
@@ -31,6 +32,7 @@
 		B61C03E21F9933A9006ABB26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B61C03E51F9933A9006ABB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B61C03E71F9933A9006ABB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B61CEB0E1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YelpImageSearch.xcdatamodel; sourceTree = "<group>"; };
 		B69235181F9D1B3E00F802B0 /* LoadingIndicatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		B692351A1F9D69C500F802B0 /* SearchHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewController.swift; sourceTree = "<group>"; };
 		B692351C1F9E5A4B00F802B0 /* SearchHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				B61C03EE1F9933FE006ABB26 /* ViewControllers */,
 				B6ACBBA71F9BD470008C26C5 /* CustomCells */,
 				B61C03ED1F9933E5006ABB26 /* Storyboards */,
+				B61CEB0D1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodeld */,
 			);
 			path = YelpImageSearch;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				B61C03DE1F9933A9006ABB26 /* SearchViewController.swift in Sources */,
 				B61C03DC1F9933A9006ABB26 /* AppDelegate.swift in Sources */,
 				B692351D1F9E5A4B00F802B0 /* SearchHistoryTableViewCell.swift in Sources */,
+				B61CEB0F1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodeld in Sources */,
 				B69235191F9D1B3E00F802B0 /* LoadingIndicatorCollectionViewCell.swift in Sources */,
 				B6ACBBA61F9BD46A008C26C5 /* BusinessImageCollectionViewCell.swift in Sources */,
 				B6D694CE1F99406200C6660B /* YelpAPIRequestManager.swift in Sources */,
@@ -455,6 +459,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B61CEB0D1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B61CEB0E1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodel */,
+			);
+			currentVersion = B61CEB0E1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodel */;
+			path = YelpImageSearch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B61C03D01F9933A9006ABB26 /* Project object */;
 }
