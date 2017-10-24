@@ -56,13 +56,11 @@ class SearchHistoryTableViewController: UITableViewController {
     
     //retrieve past searches from disk via CoreData
     func loadPastSearches() {
-        let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PastSearch")
-        //fetchRequest.resultType = .dictionaryResultType
         do {
-            let pastSearches = try managedContext.fetch(fetchRequest)
-            for search in pastSearches {
-                previousSearchKeywords.append(search.value(forKey: "keyword") as! String)
+            if let pastSearches = try managedObjectContext.fetch(fetchRequest) as? [PastSearch] {
+                previousSearchKeywords = pastSearches.map {$0.keyword!}
             }
         } catch let error as NSError {
             print(error.debugDescription)
@@ -71,12 +69,12 @@ class SearchHistoryTableViewController: UITableViewController {
     
     //save search keyword to disk via CoreData
     func saveSearch(keyword: String) {
-        let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "PastSearch", in: managedContext)!
-        let pastSearch = NSManagedObject(entity: entity, insertInto: managedContext)
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "PastSearch", in: managedObjectContext)!
+        let pastSearch = NSManagedObject(entity: entity, insertInto: managedObjectContext)
         pastSearch.setValue(keyword, forKey: "keyword")
         do {
-            try managedContext.save()
+            try managedObjectContext.save()
         } catch let error as NSError {
             print(error.debugDescription)
         }
@@ -84,6 +82,7 @@ class SearchHistoryTableViewController: UITableViewController {
     
     //add user-entered search keyword to history
     func addSearch(keyword: String) {
+        //only add new search keywords to history
         if !previousSearchKeywords.contains(keyword) {
             //add search keyword to history and reload table
             previousSearchKeywords.append(keyword)
