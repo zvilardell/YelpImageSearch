@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class SearchViewController: UIViewController, UITextFieldDelegate {
+class SearchViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var historyButton: UIButton!
@@ -20,6 +21,9 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     //keep references to embedded components of this page
     var searchResults: SearchResultsCollectionViewController!
     var searchHistory: SearchHistoryTableViewController!
+    
+    //we will use this object to retrieve user's location
+    let locationManager = CLLocationManager()
     
     //set all necessary references involving the embedded components of this page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,8 +44,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //set history button tint
         historyButton.tintColor = UIColor.darkGray
+        
         //add search image to text field's leftView
         let searchImageView = UIImageView(image: UIImage(named: "search"))
         searchImageView.frame = CGRect(x: 0.0, y: 0.0, width: 25.0, height: 20.0)
@@ -49,6 +55,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         searchImageView.tintColor = UIColor.lightGray
         searchTextField.leftView = searchImageView
         searchTextField.leftViewMode = .always
+        
+        //request user location
+        locationManager.delegate = self
+        locationManager.requestLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -104,6 +114,16 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         searchHistory.addSearch(keyword: textField.text!)
         
         return true
+    }
+    
+    //MARK: CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print(locations)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
     }
     
 }
