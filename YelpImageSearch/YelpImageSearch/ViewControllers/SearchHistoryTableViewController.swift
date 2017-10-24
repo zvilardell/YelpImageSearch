@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchHistoryTableViewController: UITableViewController {
     
@@ -35,6 +36,8 @@ class SearchHistoryTableViewController: UITableViewController {
         super.viewDidLoad()
         //don't display empty table cells below data
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        //load any previous searches from disk
+        loadPastSearches()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,11 +54,42 @@ class SearchHistoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //retrieve past searches from disk via CoreData
+    func loadPastSearches() {
+        let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PastSearch")
+        //fetchRequest.resultType = .dictionaryResultType
+        do {
+            let pastSearches = try managedContext.fetch(fetchRequest)
+            for search in pastSearches {
+                previousSearchKeywords.append(search.value(forKey: "keyword") as! String)
+            }
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
+    }
+    
+    //save search keyword to disk via CoreData
+    func saveSearch(keyword: String) {
+        let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "PastSearch", in: managedContext)!
+        let pastSearch = NSManagedObject(entity: entity, insertInto: managedContext)
+        pastSearch.setValue(keyword, forKey: "keyword")
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
+    }
+    
     //add user-entered search keyword to history
     func addSearch(keyword: String) {
         if !previousSearchKeywords.contains(keyword) {
+            //add search keyword to history and reload table
             previousSearchKeywords.append(keyword)
             tableView.reloadData()
+            //save search keyword to disk
+            saveSearch(keyword: keyword)
         }
         //when a search is performed, ensure that the history view is hidden
         if !container.isHidden {
