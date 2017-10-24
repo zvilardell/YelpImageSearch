@@ -84,12 +84,12 @@
 			isa = PBXGroup;
 			children = (
 				B61C03E71F9933A9006ABB26 /* Info.plist */,
+				B61CEB0D1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodeld */,
 				B61C03DB1F9933A9006ABB26 /* AppDelegate.swift */,
 				B6D694CF1F99407200C6660B /* Utilities */,
 				B61C03EE1F9933FE006ABB26 /* ViewControllers */,
 				B6ACBBA71F9BD470008C26C5 /* CustomCells */,
 				B61C03ED1F9933E5006ABB26 /* Storyboards */,
-				B61CEB0D1F9FCCB9000BCC03 /* YelpImageSearch.xcdatamodeld */,
 			);
 			path = YelpImageSearch;
 			sourceTree = "<group>";
