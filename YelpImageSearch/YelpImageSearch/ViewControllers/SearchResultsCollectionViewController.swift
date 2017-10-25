@@ -69,7 +69,8 @@ class SearchResultsCollectionViewController: UICollectionViewController, UIColle
                 if results.isEmpty {
                     //no results found for new search or no further results found for current search, show alert
                     self.parentVC.showAlert(title: self.searchResults.isEmpty ? "No results found" : "End of results",
-                                             message: "Please enter a new search keyword.") { [unowned self] in
+                                             message: "Please enter a new search keyword.") { [unowned self] _ in
+                                                //stop search spinner
                                                 self.parentVC.searchActivityIndicator.stopAnimating()
                     						 }
                 } else {

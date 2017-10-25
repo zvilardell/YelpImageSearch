@@ -56,9 +56,12 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CLLocationMan
         searchTextField.leftView = searchImageView
         searchTextField.leftViewMode = .always
         
-        //request user location
+        //location services
         locationManager.delegate = self
-        locationManager.requestLocation()
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            //location permissions not yet determined, request them
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,17 +70,17 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CLLocationMan
     }
     
     //create and show an alert from passed-in values
-    func showAlert(title: String, message: String, completion: (()->())?) {
+    func showAlert(title: String, message: String, completion: ((UIAlertAction)->())?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        present(alert, animated: true, completion: completion)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: completion))
+        present(alert, animated: true, completion: nil)
     }
 
     //handle history button tap
     @IBAction func historyButtonTapped(_ sender: UIButton) {
         if searchHistory.previousSearchKeywords.isEmpty {
             //no search history yet, show alert
-            showAlert(title: "No history found", message: "Please perform a search to add a keyword to your search history.") {}
+            showAlert(title: "No history found", message: "Please perform a search to add a keyword to your search history.", completion: nil)
         } else {
         	searchHistory.toggleHistoryView()
         }
@@ -104,14 +107,23 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CLLocationMan
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //keyboard's search button was tapped
         
-        //hide keyboard
-        textField.resignFirstResponder()
-        
-        //begin new search process for entered text
-        searchResults.newSearch(keyword: textField.text!)
-        
-        //add search keyword to history
-        searchHistory.addSearch(keyword: textField.text!)
+        //check location permissions before performing search
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            //hide keyboard
+            textField.resignFirstResponder()
+            
+            //begin new search process for entered text
+            searchResults.newSearch(keyword: textField.text!)
+            
+            //add search keyword to history
+            searchHistory.addSearch(keyword: textField.text!)
+        } else {
+            //location permissions denied, show alert
+            showAlert(title: "Update Location Permissions", message: "Please allow this app to access your location to provide relevant search results.", completion: { _ in
+                //navigate to app settings
+                UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+            })
+        }
         
         return true
     }
@@ -119,7 +131,21 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CLLocationMan
     //MARK: CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+        let coordinate = locations.first!.coordinate
+        print(coordinate.latitude, coordinate.longitude)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            //location permissions granted, start grabbing user's location
+            locationManager.startUpdatingLocation()
+        } else if status != .notDetermined {
+            //location permissions denied, show alert
+            showAlert(title: "Update Location Permissions", message: "Please allow this app to access your location to provide relevant search results.", completion: { _ in
+                //navigate to app settings
+                UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+            })
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
