@@ -75,8 +75,8 @@ class YelpAPIRequestManager: NSObject {
             //dictionary of search parameters with keyword and user location
             let parameterDict: [String:Any] = [
                 "term" : keyword,
-                "latitude" : 37.7670169511878,
-                "longitude" : -122.42184275,
+                "latitude" : UserDefaults.standard.double(forKey: "latitude"),
+                "longitude" : UserDefaults.standard.double(forKey: "longitude"),
                 "radius" : 40000, //max search radius allowed (25 miles)
                 "limit" : 50, //max results allowed per page
                 "offset" : page * 50

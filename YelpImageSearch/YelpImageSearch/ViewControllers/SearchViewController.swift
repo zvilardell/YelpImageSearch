@@ -131,8 +131,10 @@ class SearchViewController: UIViewController, UITextFieldDelegate, CLLocationMan
     //MARK: CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //save user location coordinates to UserDefaults
         let coordinate = locations.first!.coordinate
-        print(coordinate.latitude, coordinate.longitude)
+        UserDefaults.standard.set(coordinate.longitude, forKey: "longitude")
+        UserDefaults.standard.set(coordinate.latitude, forKey: "latitude")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
