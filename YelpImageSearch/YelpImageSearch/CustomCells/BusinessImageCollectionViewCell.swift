@@ -13,6 +13,9 @@ class BusinessImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var businessImageView: UIImageView!
     
+    //placeholder displayed while business's image loads or if there is no image found for business
+    let placeholderImage = UIImage(named: "weedmaps_abbr_logo")!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,10 +24,10 @@ class BusinessImageCollectionViewCell: UICollectionViewCell {
         //load image from passed-in url string
         if let imageURL = URL(string: imageURLString) {
             //load image asynchronously from url
-            businessImageView.sd_setImage(with: imageURL)
+            businessImageView.sd_setImage(with: imageURL, placeholderImage: placeholderImage, options: SDWebImageOptions.retryFailed, completed: nil)
         } else {
-            //no image for this cell
-            businessImageView.image = nil
+            //no image for this business listing, continue to display placeholder for this cell
+            businessImageView.image = placeholderImage
         }
     }
 }
